@@ -14,26 +14,21 @@ const CompanyDashboard = () => {
 
   console.log(counts)
 
-  
-  async function getCounts() {
-    try {
-      let res = await axios.get('https://job-backend-lnzw.onrender.com/job/countJob', {
-        headers: {
-          'Authorization': userStore.token
-        }
-      });
-      let data = res.data;
-      if (data.success) {
-        setcounts({
-          jobCount: data.jobCount,
-          appliedCount: data.appliedCount
-        });
+  async function getCounts(){
+    let res = await axios.get('https://jobbackend-s1yb.onrender.com/job/countJob',{
+      headers:{
+        'Authorization':userStore.token
       }
-    } catch (error) {
-      console.error("Error fetching data:", error);
-      // Handle the error as needed (e.g., show a notification or set an error state)
+    })
+    let data = res.data
+    // console.log(data)
+    if(data.success){
+      setcounts({
+        jobCount:data.jobCount,
+        appliedCount:data.appliedCount
+      })
     }
-  }
+    }
   
 
   useEffect(()=>{
