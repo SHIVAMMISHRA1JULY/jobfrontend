@@ -12,7 +12,7 @@ const ApplyJob = () => {
   const [apllicantDetails, SetapllicantDetails] = useState({
     name: "",
     email: "",
-    phone: "",
+    phone: "",  
     address: "",
     coverletter: "",
     resume: "",
